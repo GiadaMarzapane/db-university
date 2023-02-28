@@ -47,4 +47,12 @@ Modellizzare la struttura di un database per memorizzare tutti i dati riguardant
     WHERE level = 'magistrale';
 <!-- ---------------------------------- -->
 7. Da quanti dipartimenti è composta l'università? (12)
+#SOLUZIONE ->
+    SELECT COUNT(*)
+    FROM `departments`;
+<!-- ---------------------------------- -->
 8. Quanti sono gli insegnanti che non hanno un numero di telefono? (50)
+#SOLUZIONE ->
+    SELECT *
+    FROM `teachers`
+    WHERE `phone` IS NULL;
