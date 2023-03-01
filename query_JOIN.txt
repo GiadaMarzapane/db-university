@@ -34,7 +34,26 @@ in ordine alfabetico per cognome e nome
 <!----------------------------------------------------------->
 
 5. BONUS: Selezionare tutti i corsi di laurea con i relativi corsi e insegnanti
-
+    #SOLUZIONE 1 -->
+    SELECT *
+    FROM degrees
+    INNER JOIN courses
+    ON courses.degree_id = degrees.id
+    INNER JOIN course_teacher
+    ON courses.id = course_teacher.course_id
+    INNER JOIN teachers
+    ON course_teacher.teacher_id = teachers.id;
+    //
+    #SOLUZIONE 2 (più pulita) -->
+    SELECT degrees.id, degrees.name, courses.name, courses.period, teachers.name, teachers.surname
+    FROM degrees
+    INNER JOIN courses
+    ON courses.degree_id = degrees.id
+    INNER JOIN course_teacher
+    ON courses.id = course_teacher.course_id
+    INNER JOIN teachers
+    ON course_teacher.teacher_id = teachers.id
+    ORDER BY degrees.id;
 <!----------------------------------------------------------->
 6. BONUS: Selezionare tutti i docenti che insegnano nel Dipartimento di Matematica (54)
 <!----------------------------------------------------------->
